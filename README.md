@@ -1,4 +1,5 @@
-# Coursera_Capstone
+# The Battle of Neighborhoods
+## Setting Up a New Coffee Shop in Los Angeles, US
 --- 
 I took the IBM Data Science courses on Coursera. This is the capstone project for the IBM Data Science certification. This project requires me to come up with an idea to leverage the Foursquare location data to explore or compare neighborhoods or cities of your choice or to come up with a problem that you can use the Foursquare location data to solve.  
 I want to know if in Los Angeles, if someone is looking to open a coffee shop, where would I recommend that they open it?, so below I
