@@ -23,43 +23,44 @@ There are two datasets in the project:
 * neighborhoods in Los Angeles dataset scrapped directly from the Wikipedia website.
 * Foursquare venue dataset crawled directly from Foursquare API.
 
+The Los Angeles dataset has 190 neighborhoods. For each neighborhood, the data consists of the neighborhood's latitude and longitude.
 
-To get the neighborhoods in Los Angeles, we used the BeautifulSoup package to scrape the Wikipedia website and then parsed the geographical coordinates of the neighborhoods using the neighborhood Wikipedia pages along with the Python Geocoder package which would give us the latitude and longitude coordinates of the neighborhoods. As a result, the Los Angeles dataset has 190 neighborhoods. For each neighborhood, the data consists of the neighborhood's latitude and longitude.  
-{{< figure src="/images/project2_data1.jpg" >}}
+![](./images/project2_data1.jpg)
 
-After having the neighborhood's latitude and longitude data, we passed them to Foursquare API to get the top 100 venues that were within a radius of 2000 meters for those neighborhoods. As a result, the Foursquare venue dataset has 16909 observations where each observation consists of neighborhood latitude, neighborhood longitude, venue, and venue category.
+the Foursquare venue dataset has 16909 observations where each observation consists of neighborhood latitude, neighborhood longitude, venue, and venue category.
 ![](./images/project2_data2.jpg)
 
 In addition to the locality, the population in a neighborhood also plays an essential role in the decision of opening a new coffee shop. However, there is no such service providing the population of each neighborhood. Therefore, we assume that the more venues of a neighborhood, the more residents living there. After that, we classified the population into three categories depending on the number of venues that each neighborhood has as follows,
 * Small population: the number of venues between 0 and 20 (exclusive)
 * Medium population: the number of venues between 21 and 100 (exclusive)
 * Large population: the number of venues of 100 or more
-{{< figure src="/images/project2_data3.jpg" >}}
+
+![](./images/project2_data3.jpg)
 
 From the 3 tables above, the geographical coordinates are used to plot the map of Los Angeles with the neighborhoods while venue data is used to perform clustering on the neighborhoods. The number of coffee shops in each neighborhood is one of the most important features in the model. However, we don't want to set up a new coffee shop in a neighborhood that has a lot of coffee shops but less population. Therefore, we calculate the percent of coffee shops located in each neighborhood.
 
 One more thing we should consider before calculating the percent of coffee shops located in each neighborhood is that we need to change all categories that are synonyms of Coffee to Coffee Shop such as “Café”.
-{{< figure src="/images/project2_data4.jpg" >}}
-{{< figure src="/images/project2_data5.jpg" >}}
+![](./images/project2_data4.jpg)
+![](./images/project2_data5.jpg)
 
 # Methodology
 ### Exploratory data analysis
-Before doing anything, let’s visualize a map of Los Angeles with neighborhoods superimposed on top.
-{{< figure src="/images/project2_eda1.jpg" >}}
-There are about 416 unique venue categories in Los Angeles and coffee shops are at the top of the charts as we can see in the plot below. It’s about 1.5 times the second most common venue category (Mexican Restaurant) in Los Angeles areas.
-{{< figure src="/images/project2_eda2.jpg" >}}
+Before doing anything, let’s visualize a map of Los Angeles with neighborhoods superimposed on top.  
+![](./images/project2_eda1.jpg)
+There are about 416 unique venue categories in Los Angeles and coffee shops are at the top of the charts as we can see in the plot below. It’s about 1.5 times the second most common venue category (Mexican Restaurant) in Los Angeles areas.  
+![](./images/project2_eda2.jpg)
 The top 10 neighborhoods with the most number of coffee shops are shown in the bar chart below 
-{{< figure src="/images/project2_eda3.jpg" >}}
+![](./images/project2_eda3.jpg)
 
 Edendale, which has 15 coffee shops, is the neighborhood that has the most number of coffee shops. Among the top 10 positions, Historic Filipinotown, Franklin Hills, Hancock Park, and Melrose Hill have the same number of coffee houses. 
 
-Next, let visualize the bar chart about the population classification.
-{{< figure src="/images/project2_eda4.jpg" >}}
+Next, let visualize the bar chart about the population classification.  
+![](./images/project2_eda4.jpg)
 About 18 neighborhoods are having fewer than 60 venues which are considered a low population while there are about 110 neighborhoods that have more than 100 venues which implies that these neighborhoods have many residents.
 
 ### Clustering model
-We performed K-mean clustering with the feature “Percent” in the table shown in figure 5 to cluster the neighborhood. K-mean algorithm is one of the most common cluster methods of unsupervised learning. To specify the number of clusters K, we used the elbow method.
-{{< figure src="/images/project2_eda5.jpg" >}}
+To specify the number of clusters K, we used the elbow method.  
+![](./images/project2_eda5.jpg)
 We see that a good K to use in our model would be 3. We use the K-means algorithm in the sklearn library to fit clusters to our data.
 
 # Results
@@ -69,16 +70,16 @@ From K-means clustering, cluster 0 has 78 neighborhoods which is the highest num
 * Cluster 1: Neighborhoods that have the fewest number of coffee shops. There are less than 8 coffee shops in each neighborhood. It takes 0% to 4% of the total of those neighborhoods’ venues.
 
 * Cluster 2: Neighborhoods that have a high number of coffee shops. The number of coffee shops in each neighborhood is between 2 to 15. It takes 9% to 16% of the total of those neighborhoods’ venues.
-{{< figure src="/images/project2_result1.jpg" >}}
+![](./images/project2_result1.jpg)
 
 We visualize the results of the clustering in the map with cluster 0 in red color, cluster 1 in blue color, and cluster 2 in yellow color.
 
 # Discussion
 The moderate and high percent number of coffee shops are concentrated in the center of Los Angeles. Cluster 1 (blue) has a very low percentage of coffee shops. This represents a great opportunity and high potential location to open a new coffee shop because there is very little to no competition to open a new coffee shop. As mentioned, the neighborhoods that have more than 100 venues are considered as large populations. From the graph below, we see that Reseda is a good neighborhood to set up a new coffee shop as it only has one coffee shop but it has a large population.
-{{< figure src="/images/project2_result2.jpg" >}}
+![](./images/project2_result2.jpg)
 
 Cluster 0 can be chosen to open a new coffee shop if the population is large but the number of coffee shops is not too high (fig 13.) For example, Atwater Village has a large population but only 5 coffee shops. 
-{{< figure src="/images/project2_result3.jpg" >}}
+![](./images/project2_result3.jpg)
 
 Lastly, neighborhoods in cluster 2 should be avoided setting up a new coffee shop since they already have a high concentration of coffee shops and may suffer from intense competition.
 
