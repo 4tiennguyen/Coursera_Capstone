@@ -76,10 +76,12 @@ From K-means clustering, cluster 0 has 78 neighborhoods which is the highest num
 We visualize the results of the clustering in the map with cluster 0 in red color, cluster 1 in blue color, and cluster 2 in yellow color.
 
 # Discussion
-The moderate and high percent number of coffee shops are concentrated in the center of Los Angeles. Cluster 1 (blue) has a very low percentage of coffee shops. This represents a great opportunity and high potential location to open a new coffee shop because there is very little to no competition to open a new coffee shop. As mentioned, the neighborhoods that have more than 100 venues are considered as large populations. From the graph below, we see that Reseda is a good neighborhood to set up a new coffee shop as it only has one coffee shop but it has a large population.
+The moderate and high percent number of coffee shops are concentrated in the center of Los Angeles. 
+
+Cluster 1 (blue) has a very low percentage of coffee shops. This represents a great opportunity and high potential location to open a new coffee shop because there is very little to no competition to open a new coffee shop. As mentioned, the neighborhoods that have more than 100 venues are considered as large populations. From the graph below, we see that **Reseda is a good neighborhood to set up a new coffee shop** as it only has one coffee shop but it has a large population.  
 ![](./images/project2_result2.jpg)
 
-Cluster 0 can be chosen to open a new coffee shop if the population is large but the number of coffee shops is not too high (fig 13.) For example, Atwater Village has a large population but only 5 coffee shops. 
+Cluster 0 can be chosen to open a new coffee shop if the population is large but the number of coffee shops is not too high (fig 13.) For example, **Atwater Village has a large population but only 5 coffee shops.**   
 ![](./images/project2_result3.jpg)
 
 Lastly, neighborhoods in cluster 2 should be avoided setting up a new coffee shop since they already have a high concentration of coffee shops and may suffer from intense competition.
