@@ -28,7 +28,7 @@ To get the neighborhoods in Los Angeles, we used the BeautifulSoup package to sc
 {{< figure src="/images/project2_data1.jpg" >}}
 
 After having the neighborhood's latitude and longitude data, we passed them to Foursquare API to get the top 100 venues that were within a radius of 2000 meters for those neighborhoods. As a result, the Foursquare venue dataset has 16909 observations where each observation consists of neighborhood latitude, neighborhood longitude, venue, and venue category.
-[](./images/project2_data2.jpg)
+![](./images/project2_data2.jpg)
 
 In addition to the locality, the population in a neighborhood also plays an essential role in the decision of opening a new coffee shop. However, there is no such service providing the population of each neighborhood. Therefore, we assume that the more venues of a neighborhood, the more residents living there. After that, we classified the population into three categories depending on the number of venues that each neighborhood has as follows,
 * Small population: the number of venues between 0 and 20 (exclusive)
