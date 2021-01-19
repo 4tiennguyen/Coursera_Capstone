@@ -9,6 +9,7 @@ I want to know if in Los Angeles, if someone is looking to open a coffee shop, w
 * Made a presentation and wrote a report communicating the results to non-technical and technical audiences.
 
 To get full codes, visit [my Github](https://github.com/4tiennguyen/Coursera_Capstone/blob/main/Final_Capstone_Project%20_SETTING_UP_A_NEW_COFFEE_SHOP_IN_LOS_ANGELES.ipynb)
+To get full report, visit [my Github](https://github.com/4tiennguyen/Coursera_Capstone/blob/main/Final_Capstone_Report%20.pdf)
 
 ----------------------------------------------------------------------------------------------------
 # Introduction
